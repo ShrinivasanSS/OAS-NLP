@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>View 1 - Upload OAS</h2>
+<form method="post" enctype="multipart/form-data">
+  <div>
+    <label for="oas_file">Upload OAS file:</label>
+    <input type="file" id="oas_file" name="oas_file" />
+  </div>
+  <div>
+    <label for="example">Or select an example:</label>
+    <select name="example" id="example">
+      <option value="">-- choose example --</option>
+      {% for example in examples %}
+      <option value="{{ example }}">{{ example }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit">Load OAS</button>
+</form>
+
+{% if oas_path %}
+<p><strong>Current OAS path:</strong> {{ oas_path }}</p>
+{% endif %}
+
+{% if preview %}
+<h3>Preview</h3>
+<textarea readonly>{{ preview }}</textarea>
+{% endif %}
+{% endblock %}

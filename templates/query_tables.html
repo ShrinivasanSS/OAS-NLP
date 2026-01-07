@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>View 3 - Query OAS tables</h2>
+<form method="post">
+  <input type="hidden" name="oas_path" value="{{ oas_path }}" />
+  <button type="submit">Build Tables</button>
+</form>
+
+{% if tables %}
+<h3>Created tables</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Columns</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for table, columns in tables %}
+    <tr>
+      <td>{{ table }}</td>
+      <td>{{ columns | join(', ') }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

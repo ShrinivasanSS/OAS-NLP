@@ -64,6 +64,10 @@ db.sqlite3-journal
 # Flask stuff:
 instance/
 .webassets-cache
+logs/
+generated_outputs/api_data/
+database/oas.db
+database/qdrant/
 
 # Scrapy stuff:
 .scrapy
