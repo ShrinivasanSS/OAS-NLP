@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>View 4 - Query with NLP</h2>
+<form method="post">
+  <input type="text" name="query" placeholder="Ask about operations or fields" size="60" />
+  <button type="submit">Search</button>
+</form>
+
+{% if results %}
+<h3>Matches</h3>
+<ul>
+  {% for result in results %}
+  <li>
+    <strong>{{ result.operation_id }}</strong> {{ result.field }} ({{ result.method }} {{ result.path }})
+    - score {{ "%.3f"|format(result.score) }}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>View 2 - Generate Sample data</h2>
+<form method="post">
+  <input type="hidden" name="oas_path" value="{{ oas_path }}" />
+  <button type="submit">Generate Samples</button>
+</form>
+
+{% if generated %}
+<h3>Generated files</h3>
+<ul>
+  {% for file in generated %}
+  <li>{{ file }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
