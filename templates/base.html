@@ -7,6 +7,7 @@
     <style>
       body { font-family: Arial, sans-serif; margin: 24px; }
       nav a { margin-right: 16px; }
+      nav form { display: inline; margin-right: 16px; }
       .container { max-width: 960px; margin: 0 auto; }
       textarea { width: 100%; height: 320px; }
       .message { background: #f1f1f1; padding: 8px 12px; margin: 12px 0; }
@@ -22,6 +23,9 @@
         <a href="{{ url_for('generate_data') }}">View 2 - Generate Sample data</a>
         <a href="{{ url_for('query_tables') }}">View 3 - Query OAS tables</a>
         <a href="{{ url_for('query_nlp') }}">View 4 - Query with NLP</a>
+        <form method="post" action="{{ url_for('reset_data') }}">
+          <button type="submit">Reset Data</button>
+        </form>
       </nav>
       {% if message %}
       <div class="message">{{ message }}</div>

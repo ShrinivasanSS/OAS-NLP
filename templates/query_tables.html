@@ -3,8 +3,42 @@
 <h2>View 3 - Query OAS tables</h2>
 <form method="post">
   <input type="hidden" name="oas_path" value="{{ oas_path }}" />
+  <input type="hidden" name="action" value="build" />
   <button type="submit">Build Tables</button>
 </form>
+
+<h3>Query tables</h3>
+<form method="post">
+  <input type="hidden" name="action" value="query" />
+  <input type="text" name="query" placeholder="Try .tables or .schema <tablename>" />
+  <button type="submit">Run Query</button>
+</form>
+
+{% if query_tables_list is not none %}
+<h3>Query results</h3>
+  {% if query_tables_list %}
+  <ul>
+    {% for table in query_tables_list %}
+    <li>{{ table }}</li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No tables found.</p>
+  {% endif %}
+{% endif %}
+
+{% if schema_info %}
+<h3>Schema for {{ schema_info.table }}</h3>
+  {% if schema_info.columns %}
+  <ul>
+    {% for column in schema_info.columns %}
+    <li>{{ column }}</li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No columns found.</p>
+  {% endif %}
+{% endif %}
 
 {% if tables %}
 <h3>Created tables</h3>

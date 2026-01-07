@@ -17,10 +17,11 @@ The Flask app will start on `http://localhost:5000`.
 
 ### Core Views
 
-- `GET /upload` / `POST /upload` - Upload an OAS file or select an example and preview it.
+- `GET /upload` / `POST /upload` - Upload an OAS file (stored under `uploads/`), reuse a previously uploaded file, or select an example and preview it.
 - `GET /generate` / `POST /generate` - Generate sample request/response data under `generated_outputs/api_data`.
-- `GET /tables` / `POST /tables` - Build SQLite tables from the OAS and store field metadata in Qdrant.
+- `GET /tables` / `POST /tables` - Build SQLite tables from the OAS, store field metadata in Qdrant, and run table queries (use `.tables` or `.schema <tablename>`).
 - `GET /search` / `POST /search` - Search Qdrant for matching fields using NLP.
+- `POST /reset` - Reset uploaded files, generated sample data, and local database caches.
 
 ## Testing
 

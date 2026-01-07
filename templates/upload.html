@@ -7,6 +7,15 @@
     <input type="file" id="oas_file" name="oas_file" />
   </div>
   <div>
+    <label for="uploaded_file">Or reuse an uploaded file:</label>
+    <select name="uploaded_file" id="uploaded_file">
+      <option value="">-- choose uploaded file --</option>
+      {% for uploaded in uploaded_files %}
+      <option value="{{ uploaded }}">{{ uploaded }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div>
     <label for="example">Or select an example:</label>
     <select name="example" id="example">
       <option value="">-- choose example --</option>
