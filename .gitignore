@@ -66,6 +66,7 @@ instance/
 .webassets-cache
 logs/
 generated_outputs/api_data/
+uploads/
 database/oas.db
 database/qdrant/
 

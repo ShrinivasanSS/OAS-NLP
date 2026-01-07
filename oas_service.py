@@ -170,6 +170,22 @@ def create_sqlite_tables(
     return created
 
 
+def list_sqlite_tables(database_path: str) -> List[str]:
+    if not os.path.exists(database_path):
+        return []
+    with sqlite3.connect(database_path) as conn:
+        cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name")
+        return [row[0] for row in cursor.fetchall()]
+
+
+def get_sqlite_table_columns(database_path: str, table_name: str) -> List[str]:
+    if not os.path.exists(database_path):
+        return []
+    with sqlite3.connect(database_path) as conn:
+        cursor = conn.execute(f"PRAGMA table_info('{table_name}')")
+        return [row[1] for row in cursor.fetchall()]
+
+
 def upsert_qdrant_fields(
     operations: Iterable[OperationInfo],
     storage_path: str,

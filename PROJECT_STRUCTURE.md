@@ -12,9 +12,10 @@ The fields and their descriptions will be stored in a vector database, and suppl
 - examples/ -> contain the sample OAS used for testing.
 - database/ -> contains the sqlite/qdrant store.
 - generated_outputs/ -> sample output storage (generated sample data in `api_data/`).
+- uploads/ -> uploaded OAS files for reuse across sessions (gitignored).
 - logs/ -> application log files.
 
 ## Todo
 
 Progress updates:
-- Phase 1: Flask UI for uploading OAS, generating samples, building tables, and searching Qdrant.
+- Phase 1: Flask UI for uploading OAS, generating samples, building tables, querying tables, resetting caches, and searching Qdrant.
